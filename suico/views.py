@@ -2,14 +2,24 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Time, Jogo, Pontuar
 from django.contrib import messages
 from unidecode import unidecode
+<<<<<<< HEAD
 # import unicodedata
 from django.db.models import Sum, Q
 
+=======
+import unicodedata
+from django.db.models import Sum, Q
+
+
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
 # Create your views here.
 
 def index(request):
     jogos = Jogo.objects.all()
+<<<<<<< HEAD
 
+=======
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
     # total_de_gols(jogos)
     for j in jogos:
         unicode_timea = unidecode(str(j.timea)).replace(" ","").replace("'","")
@@ -17,6 +27,7 @@ def index(request):
         j.unicode_timea = unicode_timea
         j.unicode_timeb = unicode_timeb
 
+<<<<<<< HEAD
     gols = Jogo.objects.values('rodada').annotate(Sum('gols_total')).order_by('rodada')
 
     posicoes = Pontuar.objects.all().order_by("-pg", '-v', '-sg', '-gp')
@@ -29,6 +40,15 @@ def index(request):
 
     for p in posicoes:
         unicode_time = unidecode(str(p.time.nome)).replace(" ","").replace("'","")
+=======
+    gols = Jogo.objects.values('rodada').annotate(Sum('gols_total'))
+
+    posicoes = Pontuar.objects.all().order_by("-pg", '-v', '-sg', '-gp')
+    gps = Pontuar.objects.all().order_by('-gp', '-pg', '-v', '-sg')
+
+    for p in posicoes:
+        unicode_time = unidecode(str(p.time)).replace(" ","").replace("'","")
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
         p.timeUnicode = unicode_time
     #limpa_jogos(jogos)
     #limpa_placar(posicoes)
@@ -38,9 +58,13 @@ def index(request):
         'posicoes': posicoes,
         'rod': range(1, 14),
         'gols': gols,
+<<<<<<< HEAD
         'gps': gps,
         'defesas': defesas,
         'proxima_rodada': proxima_rodada
+=======
+        'gps': gps
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
     }
     return render(request, 'index.html', contexto)
 
@@ -88,7 +112,11 @@ def lista(request):
     contexto = {
         'jogos': jogos
     }
+<<<<<<< HEAD
     return render(request, 'Lista.html', contexto)
+=======
+    return render(request, 'lista_jogos.html', contexto)
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
 
 def placar_jogos(request):
     if not request.user.is_authenticated:
@@ -221,8 +249,11 @@ def altera_nome_time(request, time, novo_nome):
 def pagtime(request, time_id):
     posicao = get_object_or_404(Pontuar, pk=time_id)
     time = get_object_or_404(Time, nome=posicao)
+<<<<<<< HEAD
     
     time.urlfoto= 'img/'+ unidecode(str(time)).replace(" ","").replace("'","")+'.png'
+=======
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
     jogos = Jogo.objects.filter(Q(timea=posicao) | Q(timeb=posicao.time))
     for j in jogos:
         if j.placara == None:
@@ -233,4 +264,8 @@ def pagtime(request, time_id):
         'time': time,
         'jogos': jogos
     }
+<<<<<<< HEAD
     return render(request, 'pagtime.html', contexto)
+=======
+    return render(request, 'time.html', contexto)
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0

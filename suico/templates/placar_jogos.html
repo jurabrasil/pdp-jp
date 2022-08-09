@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 <html>
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     </head>
     <body>
+=======
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% include 'partials\_menu.html' %}
+{% include 'partials\_alertas.html' %}
+
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
 {% for jogo in jogos %}
 
 {% if jogo.placara == None%}
@@ -71,5 +81,9 @@
 {% endfor %}
 
 
+<<<<<<< HEAD
 </body>
 </html>
+=======
+{% include 'partials\_footer.html' %}
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0

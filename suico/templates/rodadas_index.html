@@ -1,9 +1,15 @@
 {% load icons %}
+<<<<<<< HEAD
 <div class="rodadas_index"
 <center>
     <section><center><b>Rodadas 2022</b></center></section>
         
     <div class="container row justify-content-center align-items-center">
+=======
+
+<center>
+    <div class="container row justify-content-center align-items-center bg-info">
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
         <div class="col-auto voltar">
             {% icon 'chevron-left' %}
         </div>
@@ -33,7 +39,11 @@
                     <h5 id='timea'>{{ j.timea }}</h5>
                 </div>
                 <div class="col-2 ">
+<<<<<<< HEAD
                     <input id='placara' type="text" name='placara' class="inp-lenght placara text-center" value="">
+=======
+                    <input id='placara' type="text" name='placara' class="inp-lenght placara text-center" value=""></input>
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
                 </div>
         </div>
         <div class='row'>
@@ -66,7 +76,10 @@
 
     {% endfor %}
 </form>
+<<<<<<< HEAD
 </div>
+=======
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
 
 
 <script
@@ -89,11 +102,15 @@
         $('#exampleFormControlSelect1').change(() => {
             soma = 0
             monta_rodada(soma)
+<<<<<<< HEAD
             
         })
         soma = {{proxima_rodada}}
         atual
         mostra_rodada(atual, soma)
+=======
+        })
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
     })
 
     function monta_rodada(soma) {
@@ -120,7 +137,12 @@
                 }
             }
         }
+<<<<<<< HEAD
         
     }
     fase2()
+=======
+    }
+
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
 </script>

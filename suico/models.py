@@ -5,7 +5,11 @@ from django.db import models
 class Time(models.Model):
     nome = models.CharField(("Nome"), max_length=30)
     nome_abr = models.CharField(("Apelido"), max_length=5)
+<<<<<<< HEAD
     #logo = models.ImageField(("foto"), upload_to='fotos_time/%d/%m/%Y/', blank=True, null=True)
+=======
+    logo = models.ImageField(("foto"), upload_to='fotos_time', blank=True, null=True)
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
     cores =  models.CharField(("Cores"), max_length=30, blank=True)
 
     class Meta:
@@ -15,7 +19,11 @@ class Time(models.Model):
 
 class Jogo(models.Model):
     TIMES = (
+<<<<<<< HEAD
         ("Art Elétrica", "Art Elétrica"),
+=======
+        ("Arte Elétrica", "Arte Elétrica"),
+>>>>>>> ed7c2b00257f89ed35221e6435c1c7106ad92bb0
         ("Dinos", "Dinos"),
         ("Empório Rebelo", "Empório Rebelo"),
         ("EuroBlack", "EuroBlack"),
