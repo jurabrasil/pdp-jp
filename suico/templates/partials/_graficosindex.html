@@ -1,0 +1,104 @@
+{% load mathfilters %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Rodadas', 'Gols', {role: 'annotation'}, 'Média', {role: 'annotation'}],
+          {% for r in gols %}
+            {% if r.gols_total__sum != None %}
+              [{{r.rodada}}+'ª',{{r.gols_total__sum}},{{r.gols_total__sum}} ,{{r.gols_total__sum}}/7,{{r.gols_total__sum}}/7],
+            {% endif %}
+          {% endfor %}
+        ]); 
+
+        var options = {
+          indexAxis: 'y',
+          title: 'Gráfico de Gols por Rodada',
+          subtitle: 'Desempenho por rodada',
+          legend: 'top',
+          is3D: true,
+          vAxis: { minValue: 0,
+                  gridlines: {color: 'transparent'}
+                },
+          annotations: 
+          {
+            alwaysOutside: true
+          },
+          hAxis: {minValue: 1},
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('grafico-gols'));
+
+        chart.draw(data, options);
+
+
+      //*************   grafico de gols pro ********* 
+       
+        var data = google.visualization.arrayToDataTable([
+          [{label: 'Time', type: "string"}, {label: 'Gols Feitos', type: "number"}, {role: 'annotation'}],
+          
+          {% for gp in gps %}
+            ["{{gp.time}}", {{gp.gp}}, {{gp.gp}} ],
+          {% endfor %}
+        ]);
+
+        var options = {
+          
+          title: 'Gráfico Melhor Ataque',
+          subtitle: 'Desempenho por rodada',
+          legend: 'top',
+          is3D: true,
+          colors: ['#e0440e', '#f6c7b6'],
+          vAxis: {minValue: 0,
+                  gridlines: {color: 'transparent'}
+                },
+          annotations: 
+          {
+            alwaysOutside: true,
+          },
+          hAxis: {minValue: 1},
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('graficoGolsPro'));
+
+        chart.draw(data, options);
+
+        //*************   grafico de gols contra ********* 
+       
+        var data = google.visualization.arrayToDataTable([
+          [{label: 'Time', type: "string"}, {label: 'Gols Sofridos', type: "number"}, {role: 'annotation'}],
+          
+          {% for defesa in defesas %}
+            ["{{defesa.time}}", {{defesa.gc}}, {{defesa.gc}} ],
+          {% endfor %}
+        ]);
+
+        var options = {
+          
+          title: 'Gráfico Melhor Defesa',
+          subtitle: 'Desempenho por rodada',
+          legend: 'top',
+          is3D: true,
+          colors: ['#836FFF'],
+          vAxis: {minValue: 0,
+                  gridlines: {color: 'transparent'}
+                },
+          annotations: 
+          {
+            alwaysOutside: true,
+          },
+          hAxis: {minValue: 1},
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('graficoGolsContra'));
+
+        chart.draw(data, options);
+      
+      }
+    </script>  
+    <br>

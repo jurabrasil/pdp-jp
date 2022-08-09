@@ -1,0 +1,41 @@
+{% extends 'partials/_menu.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/_header.html' %}
+<center>
+    <h1>Amador Suiço Garça/SP</h1>
+</center>
+{% include 'partials/_graficosindex.html' %}
+
+<div class="row justify-content-beetwen">
+    <div class="col-lg-8 col-md-8 col-sm-4">
+        <center>
+            {% include 'class.html' %}
+        </center>
+    </div>
+    <div class="col-lg-3 col-md-3 fundoverde">
+        {% include 'rodadas_index.html' %}
+    </div>
+</div>
+
+<div class="col-lg-3 col-md-3 fundoverde fase2">
+    <hr>
+    </hr>
+    {% include 'partials/fase2.html' %}
+    <hr>
+    </hr>
+</div>
+<div id="graficos">
+
+    <div id="grafico-gols"></div>
+    <hr>
+    <div id="graficoGolsPro"></div>
+    <hr>
+    <div id="graficoGolsContra"></div>
+</div>
+<script>
+    var p = 0
+    $(".primeiros8").css("backgroundColor", "rgba(0, 255, 0, 0.2)")
+</script>
+<script src="{% static 'js/simulacao.js' %}"></script>
+{% endblock %}

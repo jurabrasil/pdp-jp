@@ -1,0 +1,70 @@
+
+<section><b>Classificação Suiço Garça 2022</b></section>
+<center><p>Simule as rodadas e veja os confrontos</p></center>
+<div class="container center">
+  <table class="table border border-info">
+    <thead>
+      <tr class="bg-dark text-light tbclass">
+        <th class="center" scope="col"></th>
+        <th class="center" scope="col">Time</th>
+        <th class="center" scope="col">PG</th>
+        <th class="center" scope="col">J</th>
+        <th class="center" scope="col">V</th>
+        <th class="center" scope="col">E</th>
+        <th class="center" scope="col">D</th>
+        <th class="center" scope="col">GP</th>
+        <th class="center" scope="col">GC</th>
+        <th class="center" scope="col">SG</th>
+      </tr>
+    </thead>
+    <tbody class='ord'>
+      {% for pos in posicoes %}
+        {% if forloop.counter < 9 %} 
+          <tr id={{pos.timeUnicode}} class="primeiros8">
+        {% else %}
+          <tr id={{pos.timeUnicode}}>
+        {% endif %}
+        <th scope="row">{{ forloop.counter }}</th>
+        <td class="center">
+          <a href="{% url 'pagtime' pos.pk %}">
+            {{pos.time}}
+          </a>
+        </td>
+        <td class="center pontos">{{pos.pg}}</td>
+        <td class="center jogo">{{pos.j}}</td>
+        <td class="center vitoria">{{pos.v}}</td>
+        <td class="center empate">{{pos.e}}</td>
+        <td class="center derrota">{{pos.d}}</td>
+        <td class="center golspro">{{pos.gp}}</td>
+        <td class="center golscontra">{{pos.gc}}</td>
+        <td class="center saldo">{{pos.sg}}</td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+</script>
+<script>
+  var fase2 = function fase2(classificados){
+    var classificados = $('.ord').find('a')
+    setTimeout(()=>{
+
+      $('.time1').text(classificados[0].innerText)
+      $('.time2').text(classificados[1].innerText)
+      $('.time3').text(classificados[2].innerText)
+      $('.time4').text(classificados[3].innerText)
+      $('.time5').text(classificados[4].innerText)
+      $('.time6').text(classificados[5].innerText)
+      $('.time7').text(classificados[6].innerText)
+      $('.time8').text(classificados[7].innerText)
+		},1000)
+
+  }
+
+</script>

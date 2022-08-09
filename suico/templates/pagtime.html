@@ -1,0 +1,47 @@
+{% extends 'partials/_menu.html' %}
+{% load static %}
+{% load mathfilters %}
+{% block content %}
+
+{% include 'partials/_header.html' %}
+
+
+<center><h1>{{posicao}} </h1></center>
+
+<div class="alert alert-primary" role="alert">
+    
+    <b>Campanha: </b>  {{posicao.j}} jogos, com {{posicao.v}} vitória(s), {{posicao.d}} derrota(s) e {{posicao.e}} empate(s), fez {{posicao.gp}} gols e levou {{posicao.gc}} com um saldo de {{posicao.sg}} gol(s), média de {{posicao.gp|div:posicao.j}} gols feito por partida e {{posicao.gc|div:posicao.j}} gols levados.
+  </div>
+
+<div class="posicoes">
+        
+        <img  class="img-fluid img-thumbnail" src="{% static time.urlfoto %}" alt="Nenhum Logo encontrado">
+
+
+    <div class="pl-5 m-0">
+        <center><p>Jogos</p></center>
+        {% for j in jogos %}
+            {% if j.timea == time.nome %}
+                <nav class="m-0">
+                {{j.rodada}}ª - {{j.timea}} {{j.placara}}x{{j.placarb}} {{j.timeb}}
+                </nav>
+            {% else %}
+            <nav>
+                {{j.rodada}}ª - {{j.timeb}} {{j.placarb}}x{{j.placara}} {{j.timea}}
+            </nav>
+            {% endif %}
+            <br>
+        {% endfor %}
+    </div>
+
+    <div>
+        <i class="p-0 mb-0">Sobre o {{posicao}}: </i>
+        <p class="p-0 mb-0">Nome:</p>
+        <p class="p-0 mb-0">Fundação: </p>
+        <p class="p-0 mb-0">Presidente:</p>
+        <p class="p-0 mb-0">Cores: {{time.cores}}</p>
+    </div>
+    <img  class="img-fluid img-thumbnail" src="{% static time.urlfoto %}" alt="Nenhum Logo encontrado">
+    
+</div>
+{% endblock %}

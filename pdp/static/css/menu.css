@@ -1,0 +1,196 @@
+html{
+    overflow-x: hidden;
+}
+
+.posi_propaganda{
+    display: grid;
+    grid-template-columns: 31% 31% 31%;
+    justify-content: space-between;
+    align-items:flex-end;
+}
+
+.posi_propaganda img{
+    max-width: 50%;
+    height: auto;
+}
+
+.sem-borda {
+    border: none;
+}
+
+#svg13521{
+    border: none;
+    max-width: 50%;
+    height: auto;
+}
+
+
+* {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+}
+
+.linha {
+    line-height: 65%; content: " ";
+}
+
+body {
+    padding:0;
+    margin:0;
+
+}
+
+.div_sem_enter {
+    margin-top: -10p;
+    display: inline-block;
+    padding:0;
+    margin:0;
+}
+
+.logo {
+    width: 8%;
+    height: 100px;
+    position: fixed;
+    float: left;
+    top: 0;
+    margin-top: 40px;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.tabclass > th{
+    margin: 0;
+    padding: 0;
+}
+
+.inp-lenght{
+    width: 20px;
+    height: 20px;
+    color: black;
+    border: none;
+    border-bottom: 1px solid;
+    margin: 0;
+    padding: 0;
+}
+
+.inp-lenght:focus{
+    box-shadow: 0 0 0 0 ;
+    outline: 0;
+}
+
+.lista_jogos{
+    margin-right: 00%;
+    margin-left: 0%;
+}
+
+.lista_jogos th {
+    background-color: rgb(133, 201, 238);
+    text-align: center;
+
+    border: 1px solid black;
+}
+
+#graficos {
+    font-size: 1rem;
+}
+
+/* **** animações  */
+#ani{
+
+    background-color: aliceblue;
+    left: 50%;
+    top: 50%;
+    position: fixed;
+}
+
+/* **** time pagina unica  */
+.posicoes{
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+}
+
+.posicao1-foto{
+    max-width: 100%;
+    max-height: auto;
+
+}
+
+.fundoverde{
+    background-image: linear-gradient(135deg, white, lightgreen, darkblue);
+    box-sizing: content-box;
+}
+
+.fase2{
+    width: 100%;
+    min-width: 80%;
+    padding: 5px;
+    margin: 0;
+}
+
+
+.fase2grid{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "jogo1" "jogo2" "jogo3";
+    align-items: center;
+    font-size: 0.6rem;
+}
+
+.pl{
+    max-width: 30px;
+    font-size: large;
+    text-align: center;
+}
+
+.jogo1{
+    margin-right: 5px;
+    display: flex;
+    justify-content:center;
+
+}
+
+.jogo2 {
+    display: flex;
+    justify-content:center;
+}
+.penal {
+    display: flex;
+    justify-content:center;
+    margin-left: 5px;
+
+}
+
+.timem {
+    margin: 0 7px;
+}
+
+.timef {
+    margin: 0 7px;
+}
+
+
+.border0{
+    margin-right: 0%;
+    margin-left: 0%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.placar{
+    max-width: 5px;
+}
+
+.cabeca{
+    border: rgb(78, 131, 245) 1px solid;
+    display: flex;
+    justify-content: center;
+
+}
+
+/* quartas */
+.ocular_penal {
+    display: none;
+}
